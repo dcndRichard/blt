@@ -1,0 +1,14 @@
+.continer{
+    width:90%;
+    margin:0 auto;
+}
+.divider{
+    display:inline-block;
+    border:1px solid red;
+    vertical-align: top;
+    width: 49%;
+  
+}
+input{
+    display: block;
+}

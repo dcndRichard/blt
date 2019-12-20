@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="continer">
+        <head>
+            <h1>Hello {{request.session.first_name}}</h1>
+            <a href="/logout">Logout</a>
+            <a href="/wishes">Wishes dashboard</a>
+            <a href="/wishes/stats">Stats</a>
+        </head>
+        {% if messages %}
+        <div>
+            {% for msg in messages %}
+            <p>{{msg}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="divider">
+            <form action="/process_new_wish" method="POST">
+                {% csrf_token %}
+                I wish for:
+                <input type="text" name="item">
+                Description:
+                <textarea name="desc" id="" cols="30" rows="10"></textarea>
+                <a class="btn btn1" href="/wishes">Cancel</a>
+                <input type="submit" value="submit">
+
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
